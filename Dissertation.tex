@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%
+% Ph.D. thesis %
+%%%%%%%%%%%%%%%%
+
+%\documentclass[11pt,openright,twoside,letterpaper,onecolumn]{report} %% USE THIS FOR DOUBLE SIDED
+\documentclass[11pt,openright,oneside,letterpaper,onecolumn]{report}  %% USE THIS FOR SINGLE SIDED
+
+\input{./FrontMatter/TitlePage}
+
+\begin{document}
+
+% For the first pages we do not have numbering 
+\pagestyle{empty}
+
+\thesistitlepage
+\thesiscopyrightpage
+
+\thesisabstract
+
+% In the "roman-numbered" section of the thesis, we have numbers at the bottom
+% and we have to reduce the textheight of the text to make space for the number
+
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\setlength{\footskip}{0.5in}
+
+\setcounter{tocdepth}{2}
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
+\cleardoublepage                         
+
+\listoffigures
+\cleardoublepage
+
+\listoftables 
+\cleardoublepage
+
+%%%
+%%% Acknowledgments
+%%%
+\input{./FrontMatter/Acknowledgements}
+\cleardoublepage
+
+%%%
+%%% Dedication page
+%%%
+%\thispagestyle{plain}
+%\strut \vfill
+%\centerline{\LARGE 
+%For my family
+%}
+%\vfill \strut
+%\cleardoublepage
+
+%\draft   % Generates a draft version in single-space
+
+%%%
+%%% BODY
+%%%
+\pagestyle{headings}
+\pagenumbering{arabic}
+
+%
+% In the "arabic" section of the thesis, we do not have numbers at  the
+% bottom and we want to use the full length of the page to avoid vbox
+% underfulls. We use the fancyheaders package to adapt the headers
+% according to the  Columbia requirements.
+%
+\setlength{\textheight}{8.5in}
+\setlength{\footskip}{0in}
+\baselineskip=26pt
+
+% We change the pagestyle 
+\fancypagestyle{plain} {%
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\itshape \leftmark}
+\renewcommand{\headrulewidth}{0pt}
+}
+\pagestyle{plain}
+
+\chapter{Introduction}
+\label{section:intro}
+\input{./Introduction/Introduction}
+
+%\part{Title for the first part}
+%\label{sec:corpus}
+
+\chapter{Chapter 1}
+\label{chapter1}
+\input{./Chapter1/Chapter1}
+
+\chapter{Chapter 2} 
+\label{chapter2}
+\input{./Chapter2/Chapter2}
+
+\chapter{Chapter 3}
+\label{chapter3}
+\input{./Chapter3/Chapter3}
+
+\chapter{Conclusion}
+\label{conclusion}
+\input{./Conclusion/Conclusion}
+
+%%%
+%%% Appendices
+%%%
+%\part{Appendices}
+%\appendix
+%\input{./Appendices/AppendixA}
+
+%%%
+%%% Bibliography
+%%%
+% make sure to insert the name of your own .bib file below, in place of Bibliography.bib
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{Bibliography.bib}
+\bibliographystyle{named} 
+
+\end{document}
