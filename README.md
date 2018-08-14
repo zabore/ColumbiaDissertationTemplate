@@ -17,6 +17,7 @@ The FrontMatter folder contains tex files for the abstract, acknowledgements, an
 I created a Figures folder to store all of my plots in for organizational purposes and then added:
 
 `\usepackage{graphicx}`
+
 `\graphicspath{{./Figures/}}`
 
 into the FrontMatter document to point to the figure path.
